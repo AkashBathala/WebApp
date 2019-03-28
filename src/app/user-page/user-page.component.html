@@ -1,0 +1,76 @@
+
+
+<div class=" container jumbotron " *ngIf="ul">
+    <button (click)="Button()" style=" border-style: none ; background: rgb(238, 238, 238);"> <span
+            class="glyphicon glyphicon-share-alt" id="myicon"></span> back </button>
+    <div>&nbsp;</div>
+
+    <div class=" col-xs-12">
+        <div class="col-xs-3">
+            <img class="img-thumbnail img-responsive" style="border-width: 4px; border-color:rgb(71, 71, 71);"
+                [src]="ul.avatar_url" alt="assets/imag.png">
+            <!--height="150" width="150" -->
+        </div>
+
+        <div class="col-xs-8">
+            <h3>{{ul.name}}</h3>
+            
+            <p id="para">{{ul.login}}</p>
+        </div>
+    </div>
+
+    <div>&nbsp;</div>
+
+    <div class="container" style="background: white">
+        <div class="col-md-12">
+            <h3>Bio</h3>
+
+            <div>
+                <p id="para" *ngIf="ul.bio!=null; else elseBlock1">{{ul.bio}}</p>
+                <ng-template #elseBlock1>This is an Default Bio Provided By Developer as the bio of requested user is
+                    not available</ng-template>
+            </div>
+
+
+
+            <h3>Worked At </h3>
+            <div *ngIf="ul.company!=null; else elseBlock">{{ul.company}}</div>
+            <ng-template #elseBlock>Not Working</ng-template>
+
+
+            <div class="row ">
+
+                <div class="col-md-6">
+                    <h3>Resposibilites</h3>
+                    <p id="para">{{ul.public_repos}}</p>
+                </div>
+
+                <div class="col-md-6">
+                    <h3 style="text-align: center">Followers</h3>
+                    <p id="para" style="text-align: center">{{ul.followers}}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <h3>Pinned Repositories</h3>
+            <div class=" col-md-12  panel panel-primary " *ngFor="let r of repos|slice:0:3  ">
+
+                <div class="col-md-2">
+                    <img class="img-responsive img-circle" style="ime-mode: auto" [src]="ul.avatar_url" alt="assets/images.png">
+                </div>
+                <div class="col-md-10">
+                    <h4>{{r.name }}</h4>
+                    <p id="para">id:{{r.id}} </p>
+                    <p id="para">Node id:{{r.node_id}} </p>
+                    
+                    <p id="para">FullName:{{r.full_name}}</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
