@@ -3,8 +3,8 @@
     <div class="jumbotron ">
            
         <div>
-            <form >
-                <input id="search" type="search" name="search" placeholder="Search"  />
+            <form  >
+                <input id="search"  [(ngModel)]="SearchTerm" type="text" name="search"  placeholder="Search"  />
                 <p id="para"></p>
             </form>
         <p>Search </p>
@@ -14,7 +14,7 @@
     
     <div  class="container">
       <div   class=" col-md-12 "   > 
-                   <div *ngFor="let u of user  "   >
+                   <div *ngFor="let u of user |employeeFilterPipe :SearchTerm"   >
         <div class="col-md-5 row  panel panel-primary "  >
                 <div class="col-md-4">
                     <img class="img-responsive img-rounded" style="ime-mode: auto" (click)="Userid(u.login) "  [src]="u.avatar_url"><!--(click)="Userid(u.id)-->

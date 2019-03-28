@@ -1,7 +1,7 @@
 export class User_List {
     id: number;
-    fname: string;
-    lname: string;
+    name: string;
+    login: string;
     dob: Date;
     email: string;
     phone: number;

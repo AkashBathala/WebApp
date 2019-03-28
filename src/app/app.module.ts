@@ -7,7 +7,9 @@ import { UserListComponent } from './user-list/user-list.component';
 import {Routes, RouterModule} from '@angular/router';
 import { UserPageComponent } from './user-page/user-page.component';
 import{HttpClientModule} from '@angular/common/http';
-  
+import { EmployeeFilterPipePipe } from './user-list/employee-filter-pipe.pipe';
+import{ FormsModule} from '@angular/forms';
+
 const routerlist:Routes=
 [
     {path:'Userlist', component:UserListComponent},
@@ -22,11 +24,13 @@ const routerlist:Routes=
     AppComponent,
     UserListComponent,
     UserPageComponent,
+    EmployeeFilterPipePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routerlist)
   ],
   providers: [],

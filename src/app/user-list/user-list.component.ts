@@ -16,6 +16,7 @@ export class UserListComponent implements OnInit {
 
   user:User_List[];
   us:User_List;
+  SearchTerm:string="" ;
   ngOnInit() {
    this.userlist.getlist().subscribe(e=>this.user=e);
   }
