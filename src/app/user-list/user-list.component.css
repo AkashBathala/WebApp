@@ -88,25 +88,9 @@ form {
     to { -moz-transform: rotate(-225deg); }
 }
 
-h3 {
-    color: #888;
-    font-size: 20px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    margin: 100px 100px 50px;
+
+div#status {
+    position: fixed;
     
-    -webkit-font-smoothing: antialiased;
 }
 
-h3 p {
-    font-size: 13px;
-}
-
-a {
-    color: #199ed9;
-    font-weight: bold;
-    text-decoration: none
-}
-
-a:hover {
-    text-decoration: underline;   
-}

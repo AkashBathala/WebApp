@@ -9,6 +9,8 @@ import { UserPageComponent } from './user-page/user-page.component';
 import{HttpClientModule} from '@angular/common/http';
 import { EmployeeFilterPipePipe } from './user-list/employee-filter-pipe.pipe';
 import{ FormsModule} from '@angular/forms';
+import { FilterpipePipe } from './user-list/filterpipe.pipe';
+
 
 const routerlist:Routes=
 [
@@ -25,6 +27,8 @@ const routerlist:Routes=
     UserListComponent,
     UserPageComponent,
     EmployeeFilterPipePipe,
+    FilterpipePipe,
+    
   ],
   imports: [
     BrowserModule,

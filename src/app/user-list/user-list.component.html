@@ -1,39 +1,63 @@
+<div id="status">0 | 0</div>
+<div *ngIf="userli">{{userli.login}}</div>
 
-<div class="container ">
-    <div class="jumbotron ">
-           
-        <div>
-            <form  >
-                <input id="search"  [(ngModel)]="SearchTerm" type="text" name="search"  placeholder="Search"  />
+<div class="container "id="yoff" >
+    <div class="jumbotron " >
+
+        <div  >
+            <form (ngSubmit)="search(SearchTerm)" >
+                <div>
+                        <input type="submit" style="visibility: hidden" />
+                        
+                    <input id="search" [(ngModel)]="SearchTerm"  type="text" name="search" placeholder="Search" /><!--[(ngModel)]="SearchTerm"-->
                 <p id="para"></p>
-            </form>
-        <p>Search </p>
-        </div>
-        <!-- <input type="button" (click)="oninit()" value="hit me"> -->
-    </div>
-    
-    <div  class="container">
-      <div   class=" col-md-12 "   > 
-                   <div *ngFor="let u of user |employeeFilterPipe :SearchTerm"   >
-        <div class="col-md-5 row  panel panel-primary "  >
-                <div class="col-md-4">
-                    <img class="img-responsive img-rounded" style="ime-mode: auto" (click)="Userid(u.login) "  [src]="u.avatar_url"><!--(click)="Userid(u.id)-->
-                </div>
-                <div  class="col-md-7 " (click)="UserPage(u.login) " >
-                        <h4 >{{u.login}}</h4>
-                        <p id="para">NodeId: {{u.id}}</p>
-                        <p id="para">NodeId: {{u.node_id}}</p>
-
-                </div>
                 
+            </div>
+            
+                        </form>
         </div>
-        <div class="col-md-1" >
-        </div>
-    </div>
         
     </div>
+
+    <div class="container" >
+        <div class=" col-md-12 ">
+                <div  id="write" *ngIf="userli"  >
+                        <div class="col-md-5 row  panel panel-primary " >
+                            <div class="col-md-4">
+                                <img class="img-responsive img-rounded" style="ime-mode: auto" (click)="Userid(userli.login) "
+                                    [src]="userli.avatar_url">
+                                <!--(click)="Userid(userli.id)-->
+                            </div>
+                            <div class="col-md-7 " (click)="UserPage(userli.login) ">
+                                <h4>{{userli.login}}</h4>
+                                <p id="para">NodeId: {{userli.id}}</p>
+                                <p id="para">NodeId: {{userli.node_id}}</p>
+        
+                            </div>
+        
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                    </div>
+            <div  id="write" *ngFor=" let userli of user | employeeFilterPipe :SearchTerm "  >
+                <div class="col-md-5 row  panel panel-primary " >
+                    <div class="col-md-4">
+                        <img class="img-responsive img-rounded" style="ime-mode: auto" (click)="Userid(userli.login) "
+                            [src]="userli.avatar_url">
+                        <!--(click)="Userid(userli.id)-->
+                    </div>
+                    <div class="col-md-7 " (click)="UserPage(userli.login) ">
+                        <h4>{{userli.login}}</h4>
+                        <p id="para">NodeId: {{userli.id}}</p>
+                        <p id="para">NodeId: {{userli.node_id}}</p>
+
+                    </div>
+
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
-<div >
-   
 </div>

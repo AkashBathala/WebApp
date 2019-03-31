@@ -6,13 +6,17 @@ import { User_List } from './User_List';
 })
 export class EmployeeFilterPipePipe implements PipeTransform {
 
-  transform(user:User_List[],SearchTerm:String):User_List[] {
-    if(!user||!SearchTerm)
+  transform(us:User_List[],SearchTerm:String):User_List[] {
+    if(!us||!SearchTerm)
     {
-      return user;
+
+      return us;
+      
     }
-    return user.filter(u=>
+    return us.filter(u=>
       u.login.toLowerCase().indexOf(SearchTerm.toLowerCase())!==-1);
   }
+  
+  
  
 }

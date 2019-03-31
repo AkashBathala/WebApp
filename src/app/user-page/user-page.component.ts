@@ -34,7 +34,7 @@ export class UserPageComponent implements OnInit {
 
     this.route.paramMap.subscribe(p=>{
       this.name=p.get('id');
-      console.log(this.name+" in ngOninit of userpage Name");
+      // console.log(this.name+" in ngOninit of userpage Name");
        this.service.getName(this.name).subscribe(e=>this.ul=e);
     });
     

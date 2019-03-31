@@ -10,30 +10,33 @@ import { repos } from './repos';
 })
 export class UserListServiceService {
 
-  private userlist:User_List[]=[];
-  private baseurl:string="https://api.github.com/users";
-  
-  constructor(private httpclient:HttpClient) { }
+  private userlist: User_List[] = [];
+  private baseurl: string = "https://api.github.com/users";
+
+  constructor(private httpclient: HttpClient) { }
   getlist(): Observable<User_List[]> //get data for Userlist 
   {
-    return this.httpclient.get<User_List[]>("https://api.github.com/users");
+    return this.httpclient.get<User_List[]>(" https://api.github.com/users");
   }
+
   
   getList(id: number): Observable<User_List>//get data for home page by id
-   {
-     console.log(id + ' In Id Service');
+  {
+    // console.log(id + ' In Id Service');
     return this.httpclient.get<User_List>(`https://api.github.com/users/${id}`);
 
   }
-  log:string;
-  getName(login:string):Observable<User_List>
-  {
-    this.log=login;
-     return this.httpclient.get<User_List>(`https://api.github.com/users/${login}`);
+  log: String;
+  getName(login: String): Observable<User_List> {
+    this.log = login;
+    return this.httpclient.get<User_List>(`https://api.github.com/users/${login}`);
   }
-  getRepos():Observable<repos[]>{
+  getNamearrya(): Observable<User_List[]> {
+    return this.httpclient.get<User_List[]>(`https://api.github.com/users`);
+  }
+  getRepos(): Observable<repos[]> {
     return this.httpclient.get<repos[]>(`https://api.github.com/users/${this.log}/repos`);
   }
 
-  
+
 }
